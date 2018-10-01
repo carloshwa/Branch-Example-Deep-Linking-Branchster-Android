@@ -1,6 +1,6 @@
 package io.branch.branchster;
 
-import android.support.multidex.MultiDexApplication;
+import android.app.Application;
 
 import java.util.Random;
 import java.util.UUID;
@@ -11,7 +11,7 @@ import io.branch.referral.Branch;
  * Created by sahilverma on 3/7/17.
  */
 
-public class BranchsterAndroidApplication extends MultiDexApplication {
+public class BranchsterAndroidApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Branch branch = Branch.getAutoInstance(this);
