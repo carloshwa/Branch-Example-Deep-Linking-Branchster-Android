@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
@@ -49,6 +50,15 @@ public class MonsterViewerActivity extends FragmentActivity implements InfoFragm
     
     private void initUI() {
         monsterImageView_ = (MonsterImageView) findViewById(R.id.monster_img_view);
+
+        monsterImageView_.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://branchster.app.link/PXuDZOnqFQ"));
+                startActivity(intent);
+            }
+        });
+
         if (Branch.getInstance().isAutoDeepLinkLaunch(this)) {
             MonsterPreferences pref = MonsterPreferences.getInstance(this);
             myMonsterObject_ = BranchUniversalObject.getReferredBranchUniversalObject();

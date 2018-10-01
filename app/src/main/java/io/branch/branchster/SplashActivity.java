@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -51,6 +52,7 @@ public class SplashActivity extends Activity {
             public void onInitFinished(BranchUniversalObject branchUniversalObject, LinkProperties linkProperties, BranchError branchError) {
                 //If not Launched by clicking Branch link
                 if (branchUniversalObject == null) {
+                    Log.d(TAG, "branchUniversalObject is null");
                     proceedToAppTransparent();
                 } else if (linkProperties != null && !TextUtils.isEmpty(linkProperties.getControlParams().get("$web_only")) && !TextUtils.isEmpty(linkProperties.getControlParams().get("$3p"))) {
                     String webOnlyParam = linkProperties.getControlParams().get("$web_only");
